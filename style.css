@@ -1,0 +1,62 @@
+body {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.rahaKuva{
+    width: 200px;
+}
+
+.rahaKuva:hover, .paivitykset:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.rahaKuva:active{
+    width: 210px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+}
+
+.vasenOsio {
+    flex: 0 1 auto;
+    max-width: 60%;
+    text-align: center;
+}
+
+.oikeaOsio {
+    position: absolute;
+    right: 20px; 
+    top: 20px; 
+    width: 30%;
+}
+
+.paivitykset {
+    border-style: groove;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.vasenPuoli {
+    float: left;
+}
+
+.keskiPuoli {
+    margin-left: 20px;
+}
+
+.oikeaPuoli {
+    float: right;
+}

@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klikkeripeli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section> 
+        <button onclick="cheat()">Rahaa</button>
+        <div class="container">
+            <div class="vasenOsio">
+                <h3>Raha: <span class="rahaSumma">0</span></h3>
+                <h4>Rahaa sekunnissa <span class="rahaaSekunnissa">0</span></h4>
+                <img src="./kuvat/raha.png" alt="" class="rahaKuva" onclick="rahanLisays()" draggable="false">
+            </div>
+            <div class="oikeaOsio">
+                    <div class="paivitykset">
+                        <div class="klikkeriPaivitys" onclick="klikkiVoima()">
+                            <div class="vasenPuoli">
+                                +
+                            </div>
+                            <div class="keskiPuoli">
+                                <h4>Klikkeri <span class="voima">1</span></h4>
+                                <div>
+                                    <p class="voimaHinta">hinta: 10</p>
+                                </div>
+                            </div>
+                            <div class="oikeaPuoli"></div>
+                        </div>
+                    </div>
+
+                    <div class="paivitykset">
+                        <div class="autoKlikkeri" onclick="autoKlikkeri()">
+                            <div class="vasenPuoli">
+                                +
+                            </div>
+                            <div class="keskiPuoli">
+                                <h4>Autoklikkeri <span class="nopeus">1</span></h4>
+                                <div>
+                                    <p class="nopeusHinta">hinta: 150</p>
+                                </div>
+                            </div>
+                            <div class="oikeaPuoli"></div>
+                        </div>
+                    </div>
+
+                    <div class="paivitykset">
+                        <div class="superAutoKlikkeri" onclick="superAutoKlikkeri()">
+                            <div class="vasenPuoli">
+                                +
+                            </div>
+                            <div class="keskiPuoli">
+                                <h4>Super klikkeri <span class="superNopeus">1</span></h4>
+                                <div>
+                                    <p class="superNopeusHinta">hinta: 1000</p>
+                                </div>
+                            </div>
+                            <div class="oikeaPuoli"></div>
+                        </div>
+                    </div>
+                    <div class="voittoNappi">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
