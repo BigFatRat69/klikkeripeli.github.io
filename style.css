@@ -1,62 +1,269 @@
-body {
-    display: grid;
+:root {
+    --color-1: #264653;
+    --color-2: #2a9d8f;
+    --color-3: #e9c46a;
+    --color-4: #f4a261;
+    --color-5: #e76f51;
+    --background-color: #264653;
+    --text-color: #ffffff;
+    --container-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
-.rahaKuva{
-    width: 200px;
-}
-
-.rahaKuva:hover, .paivitykset:hover{
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.rahaKuva:active{
-    width: 210px;
-}
-
-.container {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--background-color);
+    background-image: 
+      radial-gradient(circle at 10% 20%, var(--color-2) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, var(--color-4) 0%, transparent 20%),
+      linear-gradient(60deg, var(--color-1) 0%, var(--color-5) 100%);
+    background-attachment: fixed;
+    background-size: 200% 200%, 200% 200%, 100% 100%;
+    animation: backgroundShimmer 15s ease infinite;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
+    min-height: 100vh;
     position: relative;
-}
-
-.vasenOsio {
-    flex: 0 1 auto;
-    max-width: 60%;
-    text-align: center;
-}
-
-.oikeaOsio {
+  }
+  
+  body::after {
+    content: '';
     position: absolute;
-    right: 20px; 
-    top: 20px; 
-    width: 30%;
-}
-
-.paivitykset {
-    border-style: groove;
-    background-color: #f0f0f0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  @keyframes backgroundShimmer {
+    0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+    50% { background-position: 100% 100%, 0% 0%, 100% 100%; }
+    100% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+  }
+  
+  .save-button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  
+  .save-button {
+    background-color: var(--color-5);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cheat-button:hover {
+    background-color: var(--color-4);
+    transform: translateY(-2px);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    width: 90%;
+    background-color: var(--container-color);
+    border: 2px solid var(--color-2);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .vasenOsio {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .oikeaOsio {
+    flex: 0 0 300px;
+    margin-left: 20px;
+  }
+  
+  .rahaSumma, .rahaaSekunnissa {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-4);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .rahaaSekunnissa {
+    font-size: 1.5rem;
+    color: var(--color-2);
+  }
+  
+  .rahaKuva-container {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .rahaKuva {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.1s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .rahaKuva:hover {
+    transform: scale(1.05);
+  }
+  
+  .rahaKuva:active {
+    transform: scale(0.95);
+  }
+  
+  .coin-splash-container {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    z-index: 1000;
+  }
+  
+  .coin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--color-3);
+    border-radius: 50%;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    animation: coinSplash 1s ease-out;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  }
+  
+  @keyframes coinSplash {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .paivitykset {
+    background-color: var(--color-1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+  }
+  
+  .paivitykset:hover {
+    transform: translateY(-5px);
+    background-color: var(--color-2);
+  }
+  
+  .klikkeriPaivitys, .autoKlikkeri, .superAutoKlikkeri {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     padding: 10px;
     border-radius: 5px;
-}
-
-.vasenPuoli {
-    float: left;
-}
-
-.keskiPuoli {
-    margin-left: 20px;
-}
-
-.oikeaPuoli {
-    float: right;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .klikkeriPaivitys:hover, .autoKlikkeri:hover, .superAutoKlikkeri:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .vasenPuoli, .oikeaPuoli {
+    flex: 0 0 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .keskiPuoli {
+    flex: 1;
+    text-align: left;
+    padding: 0 10px;
+  }
+  
+  .keskiPuoli h4 {
+    margin: 0;
+    color: var(--color-4);
+    font-size: 1.2rem;
+  }
+  
+  .keskiPuoli div {
+    font-size: 0.9rem;
+    color: var(--color-2);
+  }
+  
+  .voittoNappi {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .voitonNappi {
+    background-color: var(--color-5);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .voitonNappi:hover {
+    background-color: var(--color-4);
+    transform: translateY(-2px);
+  }
+  
+  /* SVG styles for buttons */
+  .upgrade-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-2);
+  }
+  
+  .clicker-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-4);
+  }
+  
+  .super-clicker-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-5);
+  }

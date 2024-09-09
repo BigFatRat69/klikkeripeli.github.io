@@ -6,19 +6,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section> 
-        <button onclick="cheat()">Rahaa</button>
-        <div class="container">
-            <div class="vasenOsio">
-                <h3>Raha: <span class="rahaSumma">0</span></h3>
-                <h4>Rahaa sekunnissa <span class="rahaaSekunnissa">0</span></h4>
-                <img src="./kuvat/raha.png" alt="" class="rahaKuva" onclick="rahanLisays()" draggable="false">
+    <div class="save-button-container">
+        <button class="save-button" onclick="tallennus()">Tallenna</button>
+    </div>
+    <div class="container">
+        <div class="vasenOsio">
+            <h3>Raha: <span class="rahaSumma">0</span></h3>
+            <h4>Rahaa sekunnissa <span class="rahaaSekunnissa">0</span></h4>
+            
+            <div class="rahaKuva-container">
+                <img src="coins.png" alt="Money" class="rahaKuva" onclick="rahanLisays()" draggable="false">
+                <div class="coin-splash-container"></div>
             </div>
+        </div>
             <div class="oikeaOsio">
                     <div class="paivitykset">
                         <div class="klikkeriPaivitys" onclick="klikkiVoima()">
                             <div class="vasenPuoli">
-                                +
+                                <svg class="upgrade-icon" viewBox="0 0 24 24">
+                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                </svg>
                             </div>
                             <div class="keskiPuoli">
                                 <h4>Klikkeri <span class="voima">1</span></h4>
@@ -33,7 +40,9 @@
                     <div class="paivitykset">
                         <div class="autoKlikkeri" onclick="autoKlikkeri()">
                             <div class="vasenPuoli">
-                                +
+                                <svg class="clicker-icon" viewBox="0 0 24 24">
+                                    <path d="M13.75 22.39l-3.75 1.61V12.31L6.5 17.5 4.39 15.39 12 7.78l7.61 7.61L17.5 17.5 14 12.31v11.69z"/>
+                                </svg>
                             </div>
                             <div class="keskiPuoli">
                                 <h4>Autoklikkeri <span class="nopeus">1</span></h4>
@@ -48,7 +57,9 @@
                     <div class="paivitykset">
                         <div class="superAutoKlikkeri" onclick="superAutoKlikkeri()">
                             <div class="vasenPuoli">
-                                +
+                                <svg class="super-clicker-icon" viewBox="0 0 24 24">
+                                    <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16zm0-11.47L17.74 9 12 13.47 6.26 9 12 4.53z"/>
+                                </svg>
                             </div>
                             <div class="keskiPuoli">
                                 <h4>Super klikkeri <span class="superNopeus">1</span></h4>
@@ -65,7 +76,6 @@
                 </div>
             </div>
         </div>
-    </section>
     <script src="index.js"></script>
 </body>
 </html>
